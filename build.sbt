@@ -5,7 +5,7 @@ lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
       organization := "monoids-in-scala",
-      scalaVersion := "2.12.5",
+      scalaVersion := "2.12.7",
       version      := "0.1.0-SNAPSHOT",
         scalacOptions := Seq(
         "-unchecked",
@@ -18,6 +18,10 @@ lazy val root = (project in file(".")).
       )
     )),
     name := "monoids-in-scala",
-    libraryDependencies += scalaTest % Test,
-    libraryDependencies += scalaCheck % Test
+    libraryDependencies ++= Seq(
+      akkaStreams,
+      spark,
+      scalaTest % Test,
+      scalaCheck % Test
+    )
   )
